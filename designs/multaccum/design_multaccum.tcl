@@ -1268,3 +1268,6 @@ create_root_design ""
 
 
 make_wrapper -files [get_files ./myproj/project_1.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse ./myproj/project_1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+
