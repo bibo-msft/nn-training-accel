@@ -550,3 +550,17 @@ proc create_root_design { parentCell } {
 create_root_design ""
 
 
+set_property used_in_simulation false [get_files  ./myproj/project_1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v]
+set_property used_in_simulation false [get_files  ./myproj/project_1.srcs/sources_1/bd/design_1/design_1.bd]
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse ./design_2_sim_behav.wcfg
+add_files -fileset sim_1 -norecurse ./design_2_sim.v
+set_property used_in_synthesis false [get_files  ./design_2_sim.v]
+set_property used_in_implementation false [get_files  ./design_2_sim.v]
+set_property file_type SystemVerilog [get_files  ./design_2_sim.v]
+set_property used_in_synthesis false [get_files  ./myproj/project_1.srcs/sources_1/bd/design_2/design_2.bd]
+set_property used_in_implementation false [get_files  ./myproj/project_1.srcs/sources_1/bd/design_2/design_2.bd]
+make_wrapper -files [get_files ./myproj/project_1.srcs/sources_1/bd/design_2/design_2.bd] -top
+add_files -norecurse ./myproj/project_1.gen/sources_1/bd/design_2/hdl/design_2_wrapper.v
+set_property used_in_synthesis false [get_files  ./myproj/project_1.gen/sources_1/bd/design_2/hdl/design_2_wrapper.v]
+set_property used_in_implementation false [get_files  ./myproj/project_1.gen/sources_1/bd/design_2/hdl/design_2_wrapper.v]
